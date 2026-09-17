@@ -1,4 +1,4 @@
-name: Trigger Vercel Deploy
+name: Trigger Cloudflare Pages Deploy
 
 on:
   push:
@@ -8,6 +8,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Vercel Deploy Hook
+      - name: Trigger Cloudflare Pages Deploy Hook
         run: |
-          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
+          curl --fail-with-body --silent --show-error -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}"
